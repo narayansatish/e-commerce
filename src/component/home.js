@@ -12,7 +12,7 @@ function Home()
     {
         
     return (<div>
-            <NavBar/>
+            
             <Row>
               <Col sm={{ span: 8, offset: 2 }}>
                 <JumboTron/>
