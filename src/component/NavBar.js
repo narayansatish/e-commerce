@@ -16,9 +16,9 @@ import {
                         <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
                             <Navbar.Brand href="#home">E-Comm-App</Navbar.Brand>
                            
-                         <Nav  >
+                         <Nav  className="ml-auto rounded">
                             <Nav.Item>
-                            <Image src="holder.js/171x180" class="rounded" />
+                            <img src="" ></img>
                             </Nav.Item>
                          </Nav>   
                         

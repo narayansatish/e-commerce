@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import Cart from './Cart';
 import JumboTron from './JumboTron';
 import NavBar from './NavBar';
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol ,MDBBox} from 'mdbreact';
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol ,MDBBox } from 'mdbreact';
 
 function Home()
     {
@@ -16,7 +16,7 @@ function Home()
             <Row>
               <Col sm={{ span: 8, offset: 2 }}>
                 <JumboTron/>
-                <MDBBox display="flex">
+                <MDBBox className="d-flex  align-content-start w-100 mb-auto mt-auto mb-2 flex-wrap bd-highlight example-parent col-lg-12" style={{gap:15}} >
 
                     <Cart/>
                 

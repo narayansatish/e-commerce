@@ -10,14 +10,11 @@ import  { Products } from './productList';
 import Card from './Card';
   function Cart()
                         {
-                          function make_card(value)
-                            {
-                              return (<Card item={value}/>)
-                            }
-                          let product_jsx;
-                          product_jsx=Products.map(make_card);
+                          
 
-                          return product_jsx;
+                          return (<>
+                          {Products.map((value)=><Card item={value}/>)}
+                          </>);
 
                         }
 export default Cart;
