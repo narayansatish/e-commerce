@@ -14,16 +14,18 @@ function AddItem()
         let [count,setCount]=useState(localStorage.getItem("count")==null ? 0:parseInt(localStorage.getItem("count")));
         const storeTheDataInLocalStorage=()=>{
             let data={};
-            setCount(()=>parseInt(count)+1);
+            console.log(count);
+            const newCount=count+1;
+            setCount(newCount);
             data["productName"]=productName;
             data["category"]=category;
             data["pricePerUnit"]=pricePerUnit;
             data["status"]=status;
             data["description"]=description;
-            data["id"]=count;
+            data["id"]=newCount;
             let dataString = JSON.stringify(data);
-            localStorage.setItem(count, dataString);
-            localStorage.setItem("count",count);
+            localStorage.setItem(newCount, dataString);
+            localStorage.setItem("count",newCount);
             setProductName("");
             setCategory("");
             setStatus("");

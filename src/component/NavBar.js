@@ -18,6 +18,9 @@ import {
                             <Navbar.Brand ><Link to="/">E-Comm-App</Link></Navbar.Brand>
                            
                          <Nav  className="ml-auto text-white">
+                         <Nav.Item className="px-2">
+                            <Link to="/MyCart">MyCart({localStorage.getItem("cart")==null ? 0 : (JSON.parse(localStorage.getItem("cart")))["productCount"]})</Link>
+                            </Nav.Item>
                             <Nav.Item className="px-2">
                             <Link to="/Add_Item">Add item</Link>
                             </Nav.Item>

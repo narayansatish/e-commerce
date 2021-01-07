@@ -14,7 +14,7 @@ var Products = [{
   Units: "10",
   Active: "1"
 }, {
-  id: "1",
+  id: "2",
   itemName: "Mobile",
   Description: "Good Mobile",
   Category: "ele",
@@ -22,7 +22,7 @@ var Products = [{
   Units: "10",
   Active: "1"
 }, {
-  id: "1",
+  id: "3",
   itemName: "Mobile",
   Description: "Good Mobile",
   Category: "ele",
