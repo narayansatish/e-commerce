@@ -11,27 +11,38 @@ function AddItem()
         let [pricePerUnit,setPricePerUnit]=useState("");
         let [status,setStatus]=useState("");
         let [description,setDescription]=useState("");
-        let [count,setCount]=useState(localStorage.getItem("count")==null ? 0:parseInt(localStorage.getItem("count")));
+        let [refresh,setRefresh]=useState(0);
         const storeTheDataInLocalStorage=()=>{
+            let ProductList=JSON.parse(localStorage.getItem("products")),count;
+            if(ProductList==null)
+                {ProductList={};
+                 ProductList["count"]=0;
+                 count=0;
+                }
+            else
+                count=ProductList["count"];
+
             let data={};
-            console.log(count);
-            const newCount=count+1;
-            setCount(newCount);
+           
+            
+            
             data["productName"]=productName;
             data["category"]=category;
             data["pricePerUnit"]=pricePerUnit;
             data["status"]=status;
             data["description"]=description;
-            data["id"]=newCount;
-            let dataString = JSON.stringify(data);
-            localStorage.setItem(newCount, dataString);
-            localStorage.setItem("count",newCount);
+            data["id"]=count+1;
+            ProductList["count"]=parseInt(count)+1;
+            ProductList[data["id"]]=data;
+            let dataString = JSON.stringify(ProductList);
+            localStorage.setItem("products", dataString);
+            
             setProductName("");
             setCategory("");
             setStatus("");
             setDescription("");
             setPricePerUnit("");
-
+            setRefresh(refresh==0 ?1 :0);
         };
 return (<>
         <h1 className="text-center">E-comm Back Office</h1>

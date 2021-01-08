@@ -7,15 +7,16 @@ import ReactDOM from 'react-dom';
 function ItemList()
     {   
         const populateTable=()=>{
-            let count=localStorage.getItem("count"),temp,tableContent=[];
-            if(count!=null)
-                for(let i=1;i<=count;i++)
-                    {
-                    temp=localStorage.getItem(i);
-                    temp=JSON.parse(temp);
-                    tableContent.push(temp);
-
-                    }
+            let productList=JSON.parse(localStorage.getItem("products")),temp,tableContent=[];
+            if(productList!=null)
+                {   
+                    for (const [key, value] of Object.entries(productList))
+                        {
+                            if(key!="count")
+                                {tableContent.push(value);
+                                }
+                        }
+                }
             return tableContent;
             console.log(tableContent);
         };

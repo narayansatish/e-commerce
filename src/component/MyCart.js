@@ -11,7 +11,7 @@ return (<div>
                 </Col>
             </Row>
             <div className=" border">
-                <CartList/>
+                <CartList />
             </div>
             
         </div>);

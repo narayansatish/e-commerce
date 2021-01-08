@@ -57,7 +57,7 @@ function CartList()
                             <Col>
                                 <Row>
                                     <Col>
-                                        <img src={value["image"]}></img>
+                                        <img class="img-responsive" src={value["image"]}></img>
                                     </Col>
                                     <Col>
                                         <p>{value["itemName"]}</p>
@@ -82,6 +82,13 @@ function CartList()
                   }
                   
             }
+            if(cartListJsx.length!=0)
+                cartListJsx.push(<Row>
+                    <Col lg={{ span: 5, offset: 7 }}>
+                     <h3>Subtotal({JSON.parse(localStorage.getItem("cart"))["productCount"]}item):{JSON.parse(localStorage.getItem("cart"))["totalPrice"]}</h3>
+
+                    </Col>
+                </Row>);
           setMyCart(cartListJsx);  
         },[refresh]);
            
