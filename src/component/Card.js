@@ -29,8 +29,12 @@ function Card(props)
                                       localStorage.setItem("cart",stringifyArr);
                                     }
                                   else
-                                    {
-                                      alert("Product Is Already Added!!!")
+                                    { arr["totalPrice"]=parseInt(arr["totalPrice"])+parseInt(props.item.Price);
+                                      arr["productCount"]+=1;
+                                      
+                                      arr[props.item.id]["count"]+=1;
+                                      let stringifyArr=JSON.stringify(arr);
+                                      localStorage.setItem("cart",stringifyArr);
                                     }
 
                                 }
