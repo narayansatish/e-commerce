@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import { Navbar,Nav,NavDropdown,Form,FormControl,Button,Image,Row,Col} from 'react-bootstrap';
 
 function CartList()
-    {
+    {   const increaseCount=()=>{
+                                            console.log("Increase The Count");
+
+                                };
+                                
         const cartList=JSON.parse(localStorage.getItem("cart"));
         let cartListJsx=[];
         if(cartList==null);
@@ -11,7 +15,8 @@ function CartList()
             {
                 for (const [key, value] of Object.entries(cartList)) {
                     if(key!="productCount" ||key!="totalPrice")
-                    cartListJsx.push(
+                    {console.log(key,value);
+                     cartListJsx.push(
                         <Row>
                             <Col>
                                 <Row>
@@ -25,7 +30,8 @@ function CartList()
                                         <Row>
                                         <p className="font-weight-bold col">-</p>
                                         <p className="col">{value["count"]}
-                                        </p><p className="font-weight-bold col">+</p>
+                                        </p>
+                                        <p className="font-weight-bold col" onClick={increaseCount}>+</p>
                                         </Row>
                                     </Col>
                                     <Col>
@@ -35,11 +41,11 @@ function CartList()
                             </Col>
                         </Row>
                     );
-
+                    }
 
                   }
             }
-
+            console.log(cartListJsx);
             return cartListJsx;
     }
 export default CartList;
