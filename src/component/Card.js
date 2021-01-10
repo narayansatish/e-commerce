@@ -46,7 +46,7 @@ function Card(props)
 
       let card=(<MDBCol>
         <MDBCard style={{ width: "15rem" }}>
-          <MDBCardImage className="img-fluid" src={props.item.image}  />
+          
           <MDBCardBody>
             <MDBCardTitle>{props.item.itemName+"/Rs"+props.item.Price}</MDBCardTitle>
             <MDBCardText>
