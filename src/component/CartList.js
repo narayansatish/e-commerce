@@ -18,7 +18,6 @@ function CartList(props)
                                     value["count"]+=1;
                                     let stringifyArr=JSON.stringify(arr);
                                     localStorage.setItem("cart",stringifyArr);
-                                    setRefresh(refresh==0 ? 1:0);
                                     (props.fun)();
                                             
 
@@ -37,7 +36,7 @@ function CartList(props)
                                         delete arr[key];
                                     let stringifyArr=JSON.stringify(arr);
                                     localStorage.setItem("cart",stringifyArr);
-                                    setRefresh(refresh==0 ? 1:0);
+                                    
                                     (props.fun)();       
 
                                 };
