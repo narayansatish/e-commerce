@@ -9,9 +9,10 @@ function Card(props)
                                 {
                                   let arr={};
                                   arr["productCount"]=1;
-                                  arr["totalPrice"]=props.item.Price;
-                                  props.item["count"]=1;
-                                  arr[props.item.id]=props.item;
+                                  arr["totalPrice"]=props.item.val.Price;
+                                  console.log(props.item.val.Price);
+                                  props.item.val["count"]=1;
+                                  arr[props.item.val.id]=props.item.val;
                                   let stringifyArr=JSON.stringify(arr);
                                   localStorage.setItem("cart",stringifyArr);
                                 }
@@ -19,12 +20,12 @@ function Card(props)
                                 {
                                   let arr=localStorage.getItem("cart");
                                   arr=JSON.parse(arr);
-                                  if(arr[props.item.id]==null)
+                                  if(arr[props.item.val.id]==null)
                                     {
-                                      arr["totalPrice"]=parseInt(arr["totalPrice"])+parseInt(props.item.Price);
+                                      arr["totalPrice"]=parseInt(arr["totalPrice"])+parseInt(props.item.val.Price);
                                       arr["productCount"]+=1;
-                                      props.item["count"]=1;
-                                      arr[props.item.id]=props.item;
+                                      props.item.val["count"]=1;
+                                      arr[props.item.val.id]=props.item.val;
                                       let stringifyArr=JSON.stringify(arr);
                                       localStorage.setItem("cart",stringifyArr);
                                     }
@@ -32,7 +33,7 @@ function Card(props)
                                     { arr["totalPrice"]=parseInt(arr["totalPrice"])+parseInt(props.item.Price);
                                       arr["productCount"]+=1;
                                       
-                                      arr[props.item.id]["count"]+=1;
+                                      arr[props.item.val.id]["count"]+=1;
                                       let stringifyArr=JSON.stringify(arr);
                                       localStorage.setItem("cart",stringifyArr);
                                     }
@@ -40,7 +41,7 @@ function Card(props)
                                 }
 
                           (props.item.fun)();
-    
+                                
     
                           };
 
@@ -48,7 +49,7 @@ function Card(props)
         <MDBCard style={{ width: "15rem" }}>
           
           <MDBCardBody>
-            <MDBCardTitle>{props.item.itemName+"/Rs"+props.item.val.Price}</MDBCardTitle>
+            <MDBCardTitle>{props.item.val.itemName+"/Rs"+props.item.val.Price}</MDBCardTitle>
             <MDBCardText>
               {props.item.val.Description}
             </MDBCardText>

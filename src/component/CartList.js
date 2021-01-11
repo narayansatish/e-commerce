@@ -16,6 +16,7 @@ function CartList(props)
                                     arr["productCount"]+=1;
                                       
                                     value["count"]+=1;
+                                    arr[key]=value;
                                     let stringifyArr=JSON.stringify(arr);
                                     localStorage.setItem("cart",stringifyArr);
                                     (props.fun)();
@@ -32,6 +33,7 @@ function CartList(props)
                                     arr["productCount"]-=1;
                                       
                                     value["count"]-=1;
+                                    arr[key]=value;
                                     if(value["count"]==0)
                                         delete arr[key];
                                     let stringifyArr=JSON.stringify(arr);
