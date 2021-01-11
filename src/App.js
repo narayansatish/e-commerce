@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './component/home';
+import React, { useState} from 'react';
 import { Link,Route, Switch,BrowserRouter   } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './component/NavBar';
@@ -9,6 +10,10 @@ import ItemList from './component/ItemList';
 import MyCart from './component/MyCart';
 
 function App() {
+  const [refresh,setRefresh]=useState(0);
+  const updateRefresh=()=>{
+setRefresh(refresh==0?1:0);
+  };
   return (<div>
             <NavBar/>
             
@@ -20,10 +25,10 @@ function App() {
             
             <>
             <Switch>
-              <Route path="/"  component={Home} exact/>
+              <Route path="/"  component={()=><Home fun ={updateRefresh}/>} exact/>
               <Route path="/Add_Item"  component={AddItem} exact/>
               <Route path="/Item_List"  component={ItemList} exact/>
-              <Route path="/MyCart"  component={MyCart} exact/>
+              <Route path="/MyCart"  component={()=><MyCart fun ={updateRefresh}/>}exact/>
             </Switch>
             </>
             

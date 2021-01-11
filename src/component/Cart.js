@@ -8,7 +8,7 @@ import {
   import { Navbar,Nav,NavDropdown,Form,FormControl,Button,Image     ,Row,Col  ,Jumbotron } from 'react-bootstrap';
 
 import Card from './Card';
-  function Cart()
+  function Cart(props)
                         {
                           let Products=[];
                           
@@ -30,7 +30,7 @@ import Card from './Card';
                               }
 
                           return (<>
-                          {Products.map((value)=><Card item={value}/>)}
+                          {Products.map((value)=><Card item={{"val":value,"fun":props.fun}}/>)}
                           </>);
 
                         }

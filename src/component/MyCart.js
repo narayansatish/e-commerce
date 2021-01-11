@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Navbar,Nav,NavDropdown,Form,FormControl,Button,Image     ,Row,Col                        } from 'react-bootstrap';
 import CartList from './CartList';
-function MyCart()
+function MyCart(props)
     {
 return (<div>
             <Row>
@@ -11,7 +11,7 @@ return (<div>
                 </Col>
             </Row>
             <div className=" border">
-                <CartList />
+                <CartList fun={props.fun}/>
             </div>
             
         </div>);

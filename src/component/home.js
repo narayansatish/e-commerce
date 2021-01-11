@@ -8,7 +8,7 @@ import JumboTron from './JumboTron';
 import NavBar from './NavBar';
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol ,MDBBox } from 'mdbreact';
 
-function Home()
+function Home( props)
     {
         
     return (<div>
@@ -18,7 +18,7 @@ function Home()
                 <JumboTron/>
                 <MDBBox className="d-flex  align-content-start w-100 mb-auto mt-auto mb-2 flex-wrap bd-highlight example-parent col-lg-12" style={{gap:15}} >
 
-                    <Cart/>
+                    <Cart fun={props.fun}/>
                 
                 </MDBBox>
               </Col>

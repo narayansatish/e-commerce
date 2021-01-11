@@ -39,7 +39,7 @@ function Card(props)
 
                                 }
 
-                          
+                          (props.item.fun)();
     
     
                           };
@@ -48,9 +48,9 @@ function Card(props)
         <MDBCard style={{ width: "15rem" }}>
           
           <MDBCardBody>
-            <MDBCardTitle>{props.item.itemName+"/Rs"+props.item.Price}</MDBCardTitle>
+            <MDBCardTitle>{props.item.itemName+"/Rs"+props.item.val.Price}</MDBCardTitle>
             <MDBCardText>
-              {props.item.Description}
+              {props.item.val.Description}
             </MDBCardText>
             <MDBBtn  onClick={AddToCart} className="col" lg={{ span: 12, offset:0  }}>Add to cart</MDBBtn>
           </MDBCardBody>

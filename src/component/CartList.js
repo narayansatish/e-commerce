@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import { Navbar,Nav,NavDropdown,Form,FormControl,Button,Image,Row,Col} from 'react-bootstrap';
 
-function CartList()
+function CartList(props)
     {   
         let [myCart,setMyCart]=useState(null);
         let [refresh,setRefresh]=useState(0);
@@ -19,6 +19,7 @@ function CartList()
                                     let stringifyArr=JSON.stringify(arr);
                                     localStorage.setItem("cart",stringifyArr);
                                     setRefresh(refresh==0 ? 1:0);
+                                    (props.fun)();
                                             
 
                                 };
@@ -37,7 +38,7 @@ function CartList()
                                     let stringifyArr=JSON.stringify(arr);
                                     localStorage.setItem("cart",stringifyArr);
                                     setRefresh(refresh==0 ? 1:0);
-                                            
+                                    (props.fun)();       
 
                                 };
         const cartList=JSON.parse(localStorage.getItem("cart"));
@@ -64,10 +65,10 @@ function CartList()
                                     </Col>
                                     <Col>
                                         <Row>
-                                        <p className="font-weight-bold col" id={key} onClick={decreaseCount}>-</p>
+                                        <Button className="btn btn-danger col" id={key} onClick={decreaseCount}>-</Button>
                                         <p className="col">{value["count"]}
                                         </p>
-                                        <p className="font-weight-bold col" id={key} onClick={increaseCount}>+</p>
+                                        <Button className="col btn btn-primary" id={key} onClick={increaseCount}>+</Button>
                                         </Row>
                                     </Col>
                                     <Col>
