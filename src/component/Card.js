@@ -30,7 +30,7 @@ function Card(props)
                                       localStorage.setItem("cart",stringifyArr);
                                     }
                                   else
-                                    { arr["totalPrice"]=parseInt(arr["totalPrice"])+parseInt(props.item.Price);
+                                    { arr["totalPrice"]=parseInt(arr["totalPrice"])+parseInt(props.item.val.Price);
                                       arr["productCount"]+=1;
                                       
                                       arr[props.item.val.id]["count"]+=1;

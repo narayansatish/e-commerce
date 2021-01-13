@@ -6,6 +6,16 @@ function CartList(props)
     {   
         let [myCart,setMyCart]=useState(null);
         let [refresh,setRefresh]=useState(0);
+        const payment=()=>{var options = {
+            amount: 50000,  // amount in the smallest currency unit
+            currency: "INR",
+            receipt: "order_rcptid_11"
+          };
+          instance.orders.create(options, function(err, order) {
+            console.log(order);
+          });
+
+        };
         const increaseCount=(e)=>{  
                                     let key= e.target.id;
                                     let arr=JSON.parse(localStorage.getItem("cart"));
@@ -88,7 +98,7 @@ function CartList(props)
                 cartListJsx.push(<Row>
                     <Col lg={{ span: 5, offset: 7 }}>
                      <h3>Subtotal({JSON.parse(localStorage.getItem("cart"))["productCount"]}item):{JSON.parse(localStorage.getItem("cart"))["totalPrice"]}</h3>
-
+                      <Button className="col btn btn-success" onClick={payment}>Pay</Button>
                     </Col>
                 </Row>);
           setMyCart(cartListJsx);  
